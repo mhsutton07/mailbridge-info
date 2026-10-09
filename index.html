@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How MailBridge works and how it handles data for private, personal Gmail use.">
+  <title>MailBridge | Personal email review</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell header-row"><a class="brand" href="index.html">MailBridge</a><nav aria-label="Main"><a href="index.html" aria-current="page">Home</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+  <div class="shell"><main id="main">
+    <p class="eyebrow">Personal use</p>
+    <h1>Personal email review.</h1>
+    <p class="lead">MailBridge helps its owner review selected Gmail accounts, keep track of messages that need attention, and prepare replies for review.</p>
+    <p>The application runs on the owner's Windows computer, with an iPhone app for reviewing items. These pages explain its use and data handling. There is no public sign-up; the owner operates the installation.</p>
+    <h2>What the application does</h2>
+    <ul>
+      <li>Reads messages from accounts the owner connects through Google authorization.</li>
+      <li>Uses hosted Claude analysis to suggest categories, follow-ups, and reply text.</li>
+      <li>Adds MailBridge labels in Gmail and tracks items the owner handles, snoozes, or marks as waiting.</li>
+      <li>Saves a Gmail draft only after the owner reviews and requests it. The application does not send messages or delete mail.</li>
+      <li>Can send a generic iPhone notification when an item needs attention.</li>
+    </ul>
+    <div class="note">
+      <p><strong>Email content leaves the Windows computer for analysis.</strong> Message subjects, body text, and selected thread context are sent to Anthropic's hosted Claude service. Local storage encryption and a private phone connection do not make this analysis offline.</p>
+      <p>The owner must keep Claude's model-improvement setting off for this use. Provider retention and safety exceptions still apply. Read the <a href="privacy.html#hosted-analysis">hosted analysis disclosure</a> before connecting an account.</p>
+    </div>
+    <h2>Storage and phone access</h2>
+    <p>MailBridge encrypts the contents of its stored database records on the Windows host. The owner manages the host, its configuration, and data removal. The phone connects through an owner-configured private HTTPS connection using Tailscale.</p>
+    <p>The <a href="privacy.html">privacy policy</a> explains the data collected, provider access, storage limits, and removal controls. The <a href="terms.html">terms of use</a> describe the owner's responsibilities and the application's limitations.</p>
+  </main></div>
+  <footer><div class="shell"><p>MailBridge · Private personal use</p><p><a href="privacy.html">Privacy policy</a> · <a href="terms.html">Terms of use</a></p></div></footer>
+</body>
+</html>

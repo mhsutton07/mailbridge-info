@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MailBridge's personal-use privacy policy: Gmail access, local storage, hosted analysis, notifications, and data removal.">
+  <title>Privacy policy | MailBridge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="shell header-row"><a class="brand" href="index.html">MailBridge</a><nav aria-label="Main"><a href="index.html">Home</a><a href="privacy.html" aria-current="page">Privacy</a><a href="terms.html">Terms</a></nav></div></header>
+  <div class="shell"><main id="main">
+    <p class="eyebrow">Data handling</p>
+    <h1>Privacy policy</h1>
+    <p class="date">Last updated: October 9, 2026</p>
+    <p>MailBridge is a personal application operated by its owner on a private Windows host. It has no public registration. This policy describes the application and these information pages.</p>
+    <h2>Google account access</h2>
+    <p>The owner chooses which Gmail accounts to connect and approves access through Google. MailBridge requests the Gmail modification permission, <code>gmail.modify</code>. This permission is broader than read-only access.</p>
+    <p>The implemented features read mail, add MailBridge labels, and save a draft when the owner explicitly requests it after review. The application does not send mail, delete messages, or unsubscribe from mailing lists.</p>
+    <p>An initial scan looks for recent messages, excluding spam, trash, and drafts. Later synchronization uses Gmail changes. This scan window is not a storage deletion schedule.</p>
+    <h2>Data stored on the Windows host</h2>
+    <ul>
+      <li>Connected account details, Google access and refresh tokens, and synchronization state.</li>
+      <li>Message identifiers, sender and recipient details, subjects, extracted body text, timestamps, and message flags.</li>
+      <li>Analysis results, summaries, suggested replies, reminder state, and records of requested actions.</li>
+      <li>Paired device information, notification tokens, and notification status.</li>
+    </ul>
+    <p>Attachment content is not analyzed, and links in messages are not opened. The application can record that an attachment or link is present. Extracted text and thread context have size limits, so analysis may omit information.</p>
+    <p>Database record values are encrypted using Fernet before storage in SQLite. Account and message lookup keys use HMAC. Record types, some opaque identifiers, record counts, and timing information remain visible. Host configuration contains credentials and encryption keys protected by Windows file permissions; it is not itself encrypted by this database mechanism.</p>
+    <p>The owner controls access to the computer and any backups. A person with access to the host and its keys may be able to read stored content. The iPhone stores pairing credentials in the device Keychain and displays data retrieved from the host.</p>
+    <h2 id="hosted-analysis">Hosted Claude analysis</h2>
+    <p>MailBridge sends message subjects, body text, message timing and flags, and selected same-thread context to Anthropic's hosted Claude service to generate categories, summaries, follow-ups, and proposed replies. This is online processing outside the Windows host.</p>
+    <p>The analysis input does not deliberately include OAuth credentials, provider message identifiers, or separate address-header fields. Message text itself can contain names, addresses, confidential information, or other personal data. MailBridge does not automatically redact that text.</p>
+    <p>The owner must keep Claude's model-improvement setting off before enabling this analysis. MailBridge does not enforce or verify that provider account setting. Anthropic describes the control in its <a href="https://privacy.claude.com/en/articles/12109829-how-do-i-change-my-model-improvement-privacy-settings">model-improvement settings guidance</a>.</p>
+    <p>Opting out of model improvement does not mean zero retention or no provider review. Anthropic's <a href="https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training">training policy</a> describes exceptions, including safety-flagged interactions. Its <a href="https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data">retention policy</a> governs how long it may keep data, including safety and legal exceptions. Disabling local Claude session persistence does not control Anthropic's server-side retention.</p>
+    <h2>Phone connection and notifications</h2>
+    <p>The iPhone accesses the Windows host through an owner-configured private HTTPS connection using Tailscale. Tailscale supplies network connectivity; its <a href="https://tailscale.com/privacy-policy">privacy policy</a> describes service data it processes. A private connection does not prevent content sent separately to Google or Anthropic from reaching those providers.</p>
+    <p>If notifications are enabled, Apple Push Notification service receives a device token, a generic attention notice, and opaque item and notification references. The notification payload contains no email subject, sender, or body. Opening the app retrieves details from the host. Apple's handling of service information is described in its <a href="https://www.apple.com/legal/privacy/">privacy policy</a>.</p>
+    <h2 id="retention">Retention and removal</h2>
+    <p>MailBridge has no automatic expiry or purge schedule for stored mailbox records and analysis. Data remains on the Windows host until the owner removes it. Marking an item handled, reading a message, or removing a phone pairing does not erase stored mailbox data.</p>
+    <p>The owner can stop future Google access by revoking MailBridge in <a href="https://myaccount.google.com/connections">Google Account connections</a>. Revocation does not erase local records or remove labels and drafts already created in Gmail.</p>
+    <p>To remove MailBridge's local data, the owner must stop the host processes and remove the application's database, its associated database journal files, and any retained backups. Protected configuration and keys must also be removed when decommissioning the host. MailBridge does not provide an automatic full-data deletion control. Provider-held copies are subject to the provider's own retention and deletion controls.</p>
+    <h2>Other uses and these pages</h2>
+    <p>MailBridge has no advertising, sale-of-data, or model-training feature. Mail data is used for the review, organization, reply preparation, and notification functions described here. Google account data is also subject to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a> and the <a href="https://developers.google.com/workspace/workspace-api-user-data-developer-policy">Google Workspace API user data policy</a>.</p>
+    <p>These information pages have no sign-in form, analytics script, or tracking cookies set by MailBridge. The website hosting provider may receive ordinary request information, such as an IP address and browser details. These pages do not connect to the owner's MailBridge host or access Gmail.</p>
+    <h2>Questions and changes</h2>
+    <p>For privacy questions, use the support email shown on MailBridge's Google authorization screen. Changes to application data handling should be reflected here before the changed behavior is used.</p>
+  </main></div>
+  <footer><div class="shell"><p>MailBridge · Private personal use</p><p><a href="index.html">About MailBridge</a> · <a href="terms.html">Terms of use</a></p></div></footer>
+</body>
+</html>
